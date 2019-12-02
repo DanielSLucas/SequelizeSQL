@@ -10,12 +10,15 @@ Este repositório se refere a criação de um backend utilizando o node, express
   -Abra seu terminal 
   
   -Crie uma pasta para armazenarmos nosso projeto
+  
       "mkdir NodeSequelize"
       
   -Entre na pasta do projeto
+  
       "cd NodeSequelize"
       
   -Agora crie o arquivo package.json dando 'init'
+  
       "npm init" ou "yarn init"
       
 2º Passo - instalação das dependências
@@ -24,6 +27,7 @@ Este repositório se refere a criação de um backend utilizando o node, express
   Neste exemplo estaremos utilizando o MySQL Worckbench (MariaDB) e o rodaremos localmente com o XAMPP.
   
   -No seu terminal instale:
+  
       express: 
           "yarn add express"
       sequelize:
@@ -38,6 +42,7 @@ Este repositório se refere a criação de um backend utilizando o node, express
 3º Passo - index.js
 
   -Crie um arquivo chamado "index.js" na raiz do projeto.
+  
   -insira nele o seguinte conteúdo:
   
     "
@@ -62,6 +67,7 @@ Este repositório se refere a criação de um backend utilizando o node, express
 4º Passo - configurando o Sequelize
   
   -Primeiro vamos inicar o sequelize no projeto.
+  
     Digite no terminal: "npx sequelize init"
    
   -Com isso devem ser criados no projeto alguns arquivos. ("config", "migrations", "models" e "seeders").
@@ -81,11 +87,15 @@ Este repositório se refere a criação de um backend utilizando o node, express
   *para facilitar a manipulação do banco de dados vamos usar o mySQL workbench
   
   -Agora crie as pastas "database" e "app" na raiz do projeto
+  
   -Agora mova as pastas "migrations" e "seeders" para dentro de "database"
+  
   -Mova a pasta "models" para dentro de "app"
   
   -Agora precisamos configurar o sequelize para encontrar os arquivos nas pastas para onde os movemos.
+  
   -Crie na raiz do projeto o arquivo: ".sequelizerc"
+  
   -Insira esse conteúdo:
   
     "
@@ -137,10 +147,13 @@ Este repositório se refere a criação de um backend utilizando o node, express
   uma nova migration deve ser criada.
   
   -No nosso caso vamos criar uma tabela de usuários, então vamos criar uma nova migration.
+  
   -Para criar uma nova migration execute no terminal:
+  
     "npx sequelize mitration:create --name=create-users"
    
   -Com esse comando executado, um arquivo deve ter sido criado na sua pasta "migrations"
+  
   -Altere o arquivo para ficar dessa maneira:
   
   "
@@ -195,10 +208,13 @@ Este repositório se refere a criação de um backend utilizando o node, express
 
   "
   -Agora vamos executar a migration. Execute:
+  
     "npx sequelize db:migrate"
+    
   -Verifique em seu banco se as tabelas "SequelizeMeta" e "Users" foram criadas.
   
 6º Passo - primeiro model
+
   -Dentro da pasta models crie o arquivo "user.js"
   
     "
@@ -215,7 +231,9 @@ Este repositório se refere a criação de um backend utilizando o node, express
 7º Passo - inserção de um usuário
 
   -Agora vamos testar se tudo está funcionando inserindo um usuário na tabela "users"
+  
   -No arquivo "index.js" presente na raiz do projeto, importe o model "user" no topo do arquivo:
+  
     "const { User } = require('./app/models');"
   
   -Adicione as linhas de configuração do body-parser:
@@ -231,9 +249,11 @@ Este repositório se refere a criação de um backend utilizando o node, express
     "
       User.create({ name: 'Claudio', email: 'claudio@rocketseat.com.br', password: '123456' });
     "
+    
   -Salve o arquivo e execute "node index.js" e se tudo estiver certo um usuário será adicionado a tabela users! =)
   
  8º Passo - Criação do CRUD
+ 
   -agora no mesmo arquivo "index.js" vamos criar as rotas de criar, alterar, ler e deletar.
   
   
