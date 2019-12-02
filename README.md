@@ -141,6 +141,7 @@ Este repositório se refere a criação de um backend utilizando o node, express
   -Altere o arquivo para ficar dessa maneira:
   
   "
+  
     'use strict';
 
     module.exports = {
