@@ -8,10 +8,13 @@ Este repositório se refere a criação de um backend utilizando o node, express
 1º  Passo - iniciando o projeto
 
   -Abra seu terminal 
+  
   -Crie uma pasta para armazenarmos nosso projeto
       "mkdir NodeSequelize"
+      
   -Entre na pasta do projeto
       "cd NodeSequelize"
+      
   -Agora crie o arquivo package.json dando 'init'
       "npm init" ou "yarn init"
       
