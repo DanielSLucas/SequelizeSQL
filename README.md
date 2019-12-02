@@ -64,14 +64,15 @@ Este repositório se refere a criação de um backend utilizando o node, express
   -Com isso devem ser criados no projeto alguns arquivos. ("config", "migrations", "models" e "seeders").
   
   -Vamos entrar na pasta config e alterar o nome do arquivo "config.json" para "database.js". e alterar seu conteúdo para:
+  
     "
-      module.exports = {
-        username: 'root', //usuário
-        password: '',     //senha
-        database: 'db_sequelize', //nome do banco que estamos utilizando
-        host: '127.0.0.1', 
-        dialect: 'mysql', //tipo de banco
-      }
+        module.exports = {
+          username: 'root', //usuário
+          password: '',     //senha
+          database: 'db_sequelize', //nome do banco que estamos utilizando
+          host: '127.0.0.1', 
+          dialect: 'mysql', //tipo de banco
+        }
     "
     
   *para facilitar a manipulação do banco de dados vamos usar o mySQL workbench
@@ -83,6 +84,7 @@ Este repositório se refere a criação de um backend utilizando o node, express
   -Agora precisamos configurar o sequelize para encontrar os arquivos nas pastas para onde os movemos.
   -Crie na raiz do projeto o arquivo: ".sequelizerc"
   -Insira esse conteúdo:
+  
     "
       const path = require('path');
 
@@ -96,6 +98,7 @@ Este repositório se refere a criação de um backend utilizando o node, express
     
     
   -Altere o arquivo "app/models/index.js" para:
+  
     "
       const fs = require('fs');
       const path = require('path');
@@ -136,6 +139,7 @@ Este repositório se refere a criação de um backend utilizando o node, express
    
   -Com esse comando executado, um arquivo deve ter sido criado na sua pasta "migrations"
   -Altere o arquivo para ficar dessa maneira:
+  
   "
     'use strict';
 
@@ -192,6 +196,7 @@ Este repositório se refere a criação de um backend utilizando o node, express
   
 6º Passo - primeiro model
   -Dentro da pasta models crie o arquivo "user.js"
+  
     "
       module.exports = (sequelize, DataTypes) => {
         const User = sequelize.define('User', {
@@ -210,6 +215,7 @@ Este repositório se refere a criação de um backend utilizando o node, express
     "const { User } = require('./app/models');"
   
   -Adicione as linhas de configuração do body-parser:
+  
     "
       cosnt bodyParser = require('body-parser');
       cosnt jsonParser = bodyParser.json();
@@ -217,6 +223,7 @@ Este repositório se refere a criação de um backend utilizando o node, express
     "
     
   -Abaixo dessas linhas vamos usar um comando do model para criarmos um usuário:
+  
     "
       User.create({ name: 'Claudio', email: 'claudio@rocketseat.com.br', password: '123456' });
     "
@@ -225,7 +232,9 @@ Este repositório se refere a criação de um backend utilizando o node, express
  8º Passo - Criação do CRUD
   -agora no mesmo arquivo "index.js" vamos criar as rotas de criar, alterar, ler e deletar.
   
+  
   "
+  
     //CRIAR
     app.post('/register', async (req, res) => {
         const user = await User.create(req.body);
