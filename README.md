@@ -239,9 +239,9 @@ Este repositório se refere a criação de um backend utilizando o node, express
   -Adicione as linhas de configuração do body-parser:
   
     "
-      cosnt bodyParser = require('body-parser');
-      cosnt jsonParser = bodyParser.json();
-      cosnt urlencodedParser = bodyParser.urlencoded({ extended: false });
+      const BodyParser = require('body-parser');
+      app.use(BodyParser.urlencoded({ extended: false }))
+      app.use(BodyParser.json())
     "
     
   -Abaixo dessas linhas vamos usar um comando do model para criarmos um usuário:
