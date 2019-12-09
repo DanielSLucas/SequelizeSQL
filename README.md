@@ -150,7 +150,7 @@ Este repositório se refere a criação de um backend utilizando o node, express
   
   -Para criar uma nova migration execute no terminal:
   
-    "npx sequelize mitration:create --name=create-users"
+    "npx sequelize migration:create --name=create-users"
    
   -Com esse comando executado, um arquivo deve ter sido criado na sua pasta "migrations"
   
